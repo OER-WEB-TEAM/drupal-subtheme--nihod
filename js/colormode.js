@@ -5,8 +5,11 @@
  */
 
 /*
-  This script is adjusted from the original Bootstrap version, to allow 
-  for <i> tag icons, instead of <svg>
+  This script is adjusted from the original Bootstrap version
+  @https://github.com/twbs/examples/blob/main/color-modes/js/color-modes.js
+  , to allow for <i> tag icons, instead of <svg>
+
+  TODO: This will have to be handled better, we don't know how styles will cascade
   */
 (() => {
   "use strict";

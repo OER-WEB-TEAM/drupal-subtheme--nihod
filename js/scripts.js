@@ -222,7 +222,8 @@
         attach: function (context) {
 
             once("helper__addBack2TopButton", "body", document).forEach(body => {
-                var buttonHTML = `<button id="back2top" class="btn btn-outline-primary bg-white text-primary"><i class="bi bi-arrow-up-short"></i> Back to Top</button>`;
+                var hidden = window.scrollY >= window.innerHeight ? "" : "hidden";
+                var buttonHTML = `<button id="back2top" class="btn btn-light ${hidden}"><i class="bi bi-arrow-up-short"></i> Back to Top</button>`;
                 body.insertAdjacentHTML("beforeend", buttonHTML);
 
                 var button = document.querySelector("#back2top");
