@@ -69,8 +69,8 @@
   %}
 
   {%
-  set content_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-lg-8' : ((page.sidebar_first or page.sidebar_second) ? 'col-12 col-lg-10' : 'col-12' )
-   %}
+  set content_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-lg-8 px-0 px-lg-5' : ((page.sidebar_first or page.sidebar_second) ? (page.sidebar_first ? 'col-12 col-lg-10 ps-lg-5' : 'col-12 col-lg-10 pe-lg-5') : 'col-12' )
+  %}
 
 
   <div class="{{ b5_top_container }}">
@@ -83,7 +83,7 @@
           {{ page.sidebar_first }}
         </div>
       {% endif %}
-      <div class="order-1 order-lg-2 px-0 px-lg-5 {{ content_classes }}">
+      <div class="order-1 order-lg-2 {{ content_classes }}">
         {{ page.content }}
       </div>
       {% if page.sidebar_second %}

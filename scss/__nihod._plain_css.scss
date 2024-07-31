@@ -36,6 +36,21 @@ label:has([data-jsvalidate="error"]) {
 [data-jsvalidate="error"] {
     box-shadow: none;
 }
+.form-framed {
+    padding: 0.5em;
+    padding-left: 2.25em;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    margin-bottom: 0.25em;
+}
+.form-framed:has(input:checked) {
+    border-color: var(--bs-info);
+    background-color: rgba(var(--bs-info-rgb), 0.2);
+}
+.form-framed:has(input:disabled) {
+    pointer-events: none;
+    border-color: rgba(0, 0, 0, 0.1);
+}
 
 
 // *
@@ -200,7 +215,7 @@ ul.icon-list.il_cloudupdown>li.not:before {
 }
 
 .process-list.pl-light>li:not(:last-child)::before {
-    background: rgba(var(--bs-warning-rgb), .3);
+    background: rgb(var(--bs-light-rgb));
 }
 
 .process-list.pl-dark>li:not(:last-child)::before {
