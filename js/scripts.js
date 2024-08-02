@@ -159,9 +159,10 @@
         attach: function () {
             once("helper__anchorLink", "#redirect-banner", document.body).forEach((redirBanner) => {
                 let redirect = window.location.href.includes("redirected");
+                let hash = window.location.hash;
                 if (redirect) {
                     redirBanner.classList.remove("d-none")
-                    window.history.replaceState({}, "", window.location.href.split("?")[0]);
+                    window.history.replaceState({}, "", window.location.href.split("?")[0] + hash);
                 }
             });
         },
@@ -193,7 +194,6 @@
                 // Automatically handles responsive table layout
                 jQuery(window).on("resize", () => {
                     let w = window.innerWidth;
-                    console.log(w, card);
                     if (w < thresh && !card) {
                         $table.bootstrapTable("toggleView");
                         card = true;
