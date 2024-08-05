@@ -40,17 +40,30 @@ $red: #C91B1B;
 $orange: #fd7e14;
 $yellow: #FFC321;
 $green: #49A261;
-$teal: #20c997;
+$teal: #94C4C1;
 $cyan: #49A0E0;
 
 $primary: $blue;
 $secondary: $purple;
+$tertiary: $teal;
 $success: $green;
 $info: $cyan;
 $warning: $yellow;
 $danger: $red;
 $light: $gray-100;
 $dark: $gray-900;
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "tertiary":   $tertiary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
 
 
 // *
