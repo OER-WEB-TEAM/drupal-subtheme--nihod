@@ -143,15 +143,22 @@
     Drupal.behaviors.anchorLink = {
         attach: function (context) {
 
-            if (context.querySelector("article") == null) return;
             // Produce an anchor icon for all the headings with class ".anchor"
-            once("helper__anchorLink", ".anchor", document.body).forEach((anchorElement) => {
+            once("helper__anchorLink", ".anchor", context.querySelector("article")).forEach((anchorElement) => {
                 let innerText = anchorElement.innerText;
                 let anchor = innerText.replace(/\s+/g, '-').toLowerCase();
                 anchorElement.setAttribute("id", anchor)
 
                 anchorElement.innerHTML += `<a href="#${anchor}">#</a>`;
             });
+
+            // Programatically scroll to that element. Timeout is needed to avoid race conditions
+            if(window.location.hash){
+                setTimeout(() => {
+                    let tgt = window.location.hash.substring(1)
+                    document.getElementById(tgt).scrollIntoView({ behavior: "instant", block: "start" });
+                },100);
+            }
         },
     };
 

@@ -56,7 +56,8 @@ label:has([data-jsvalidate="error"]) {
 // *
 // *
 // LINKS
-a[target="_blank"]:not(.site-logo):not(.btn):not(.d-block):not(.noicon)::after {
+// Disabling this as of 08/19/2024
+/*a[target="_blank"]:not(.site-logo):not(.btn):not(.d-block):not(.noicon)::after {
     content: "\F1C5";
     display: inline-block;
     font-family: bootstrap-icons !important;
@@ -64,8 +65,7 @@ a[target="_blank"]:not(.site-logo):not(.btn):not(.d-block):not(.noicon)::after {
     font-size: 0.7em;
     margin-right: 3px;
     transform: translate(3px, -4px);
-}
-
+}*/
 .anchor:hover>a {
     opacity: 1;
 }
