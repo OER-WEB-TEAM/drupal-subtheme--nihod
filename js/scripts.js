@@ -141,10 +141,9 @@
     };
 
     Drupal.behaviors.anchorLink = {
-        attach: function (context) {
-
+        attach: function () {
             // Produce an anchor icon for all the headings with class ".anchor"
-            once("helper__anchorLink", ".anchor", context.querySelector("article")).forEach((anchorElement) => {
+            once("helper__anchorLink", ".anchor", document.body).forEach((anchorElement) => {
                 let innerText = anchorElement.innerText;
                 let anchor = innerText.replace(/\s+/g, '-').toLowerCase();
                 anchorElement.setAttribute("id", anchor)
@@ -152,10 +151,9 @@
                 anchorElement.innerHTML += `<a href="#${anchor}">#</a>`;
             });
 
-            // Programatically scroll to that element. Timeout is needed to avoid race conditions
             if(window.location.hash){
                 setTimeout(() => {
-                    let tgt = window.location.hash.substring(1)
+                    let tgt = window.location.hash.substring(1);
                     document.getElementById(tgt).scrollIntoView({ behavior: "instant", block: "start" });
                 },100);
             }
@@ -164,14 +162,13 @@
 
     Drupal.behaviors.redirectBanner = {
         attach: function () {
-            once("helper__anchorLink", "#redirect-banner", document.body).forEach((redirBanner) => {
-                let redirect = window.location.href.includes("redirected");
-                let hash = window.location.hash;
-                if (redirect) {
-                    redirBanner.classList.remove("d-none")
-                    window.history.replaceState({}, "", window.location.href.split("?")[0] + hash);
-                }
-            });
+            var redirBanner = once("helper__redirectBanner", "#redirect-banner", document.body)[0];
+            var redirect = window.location.href.includes("redirected");
+            var hash = window.location.hash;
+            if (redirect) {
+                redirBanner.classList.remove("d-none")
+                window.history.replaceState({}, "", window.location.href.split("?")[0] + hash);
+            }
         },
     };
 
